@@ -1,7 +1,7 @@
 import random
 import numpy as np
 
-
+#THIS IS A TEST COMMIT BY SMITTY
 class Board:
     def __init__(self, n):
         self.n_queen = n
