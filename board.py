@@ -1,18 +1,20 @@
 import random
 import numpy as np
 
-#THIS IS A TEST COMMIT BY SMITTY
 class Board:
     def __init__(self, n):
         self.n_queen = n
         self.map = [[0 for j in range(n)] for i in range(n)]
         self.fit = 0
+        self.encoding = [5]
     
         for i in range(self.n_queen):
             j = random.randint(0, self.n_queen - 1)
             self.map[i][j] = 1
+            self.encoding[i] = j
 
-    def fitness(self):        
+    def fitness(self):
+      self.fit = 0      
         for i in range(self.n_queen):
             for j in range(self.n_queen):
                 if self.map[i][j] == 1:
@@ -25,6 +27,7 @@ class Board:
                             self.fit += 1
 
     def show(self):
+
         print(np.matrix(self.map))
         print("Fitness: ",  self.fit)
 
