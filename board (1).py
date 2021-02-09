@@ -23,22 +23,22 @@ class Board:
         for j in range(1, self.n_queen - i):
           second_queen = self.map[i + j]
           # if the second queen is in the same column or diagonally right from og queen
-          if second_queen == curr_queen or second_queen == curr_queen + j
+          if second_queen == curr_queen or second_queen == curr_queen + j:
             self.fit += 1
           # else if the second queen is diagonally left from og queen
           elif (second_queen == curr_queen - j) and second_queen > -1:
             self.fit += 1
 
-    # for i in range(self.n_queen):
-    #     for j in range(self.n_queen):
-    #         if self.map[i][j] == 1:
-    #             for k in range(1, self.n_queen - i):
-    #                 if self.map[i + k][j] == 1:
-    #                     self.fit += 1
-    #                 if j - k >= 0 and self.map[i + k][j - k] == 1:
-    #                     self.fit += 1
-    #                 if j + k < self.n_queen and self.map[i + k][j + k] == 1:
-    #                     self.fit += 1
+  # show a grid view of the board
+  def showGrid(self):
+    grid = [[0 for i in range self.n_queen] for j in range self.n_queen]
+    for i in range(self.n_queen):
+      grid[i][self.map[i]] = 1
+    print(grid)
+
+  def copy(self):
+
+    return type(self)
 
   def show(self):
 
@@ -46,7 +46,7 @@ class Board:
     print("Fitness: ",  self.fit)
 
 # TODO: Make sure flip function's used right
-# (Also not sure if we need this, since Jacob has some flipping don in hillClimb)
+# (Also not sure if we need this, since Jacob has some flipping done in hillClimb)
   def flip(self, i, j):
     if self.map[i][j] == 0:
         self.map[i][j] = 1
